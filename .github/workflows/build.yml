@@ -31,6 +31,9 @@ jobs:
         run: |
           cd hotel_project
           echo "android.useAndroidX=true" > gradle.properties
+          echo 'android.compileOptions.sourceCompatibility = JavaVersion.VERSION_17' >> app/build.gradle.kts
+          echo 'android.compileOptions.targetCompatibility = JavaVersion.VERSION_17' >> app/build.gradle.kts
+          echo 'tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "17" }' >> app/build.gradle.kts
           gradle assembleDebug
 
       - name: Upload APK
