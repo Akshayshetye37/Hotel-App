@@ -30,6 +30,7 @@ jobs:
       - name: Build APK
         run: |
           cd hotel_project
+          echo "android.useAndroidX=true" > gradle.properties
           gradle assembleDebug
 
       - name: Upload APK
